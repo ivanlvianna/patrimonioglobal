@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Diagnóstico Estratégico Patrimonial — Ivan Vianna, CFP®</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap');
+
+  :root {
+    --verde: #1B4D3E;
+    --verde-escuro: #112e25;
+    --verde-claro: #2a6b57;
+    --dourado: #8B7355;
+    --dourado-claro: #b09a72;
+    --creme: #F9F6F0;
+    --creme-escuro: #EDE8DF;
+    --texto: #1a1a1a;
+    --suave: #5a5a5a;
+    --branco: #ffffff;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--creme);
+    color: var(--texto);
+  }
+
+  /* ── HERO ─────────────────────────────────── */
+  .hero {
+    background: var(--verde);
+    padding: 72px 24px 80px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 50% 0%, rgba(139,115,85,0.2) 0%, transparent 65%);
+    pointer-events: none;
+  }
+
+  .hero-eyebrow {
+    font-family: 'Inter', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--dourado-claro);
+    margin-bottom: 28px;
+    position: relative;
+  }
+
+  .hero-titulo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(34px, 6vw, 58px);
+    font-weight: 400;
+    color: var(--branco);
+    line-height: 1.15;
+    max-width: 760px;
+    margin: 0 auto 20px;
+    position: relative;
+  }
+
+  .hero-titulo em {
+    font-style: italic;
+    color: var(--dourado-claro);
+  }
+
+  .hero-sub {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(18px, 2.8vw, 24px);
+    font-weight: 300;
+    font-style: italic;
+    color: rgba(255,255,255,0.6);
+    max-width: 560px;
+    margin: 0 auto 52px;
+    line-height: 1.55;
+    position: relative;
+  }
+
+  .hero-cta-bloco {
+    position: relative;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .btn-hero {
+    background: var(--dourado);
+    color: var(--branco);
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 20px 56px;
+    border: none;
+    cursor: pointer;
+    border-radius: 2px;
+    text-decoration: none;
+    display: inline-block;
+    transition: background 0.2s, transform 0.15s;
+  }
+
+  .btn-hero:hover {
+    background: var(--dourado-claro);
+    transform: translateY(-2px);
+  }
+
+  .hero-preco {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    color: rgba(255,255,255,0.45);
+    letter-spacing: 0.5px;
+  }
+
+  .hero-preco strong {
+    color: rgba(255,255,255,0.75);
+    font-weight: 600;
+  }
+
+  /* ── TENSÃO ───────────────────────────────── */
+  .tensao {
+    background: var(--verde-escuro);
+    padding: 56px 24px;
+    text-align: center;
+  }
+
+  .tensao-numero {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(52px, 10vw, 88px);
+    font-weight: 300;
+    color: var(--dourado-claro);
+    line-height: 1;
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  .tensao-rotulo {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+    margin-bottom: 28px;
+    display: block;
+  }
+
+  .tensao-frase {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(20px, 3.5vw, 28px);
+    font-weight: 400;
+    color: var(--branco);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.45;
+  }
+
+  .tensao-frase em { font-style: italic; color: var(--dourado-claro); }
+
+  /* ── SEÇÕES GERAIS ────────────────────────── */
+  .secao {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 72px 24px;
+  }
+
+  .secao-eyebrow {
+    font-family: 'Inter', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--dourado);
+    margin-bottom: 16px;
+  }
+
+  .secao-titulo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(26px, 4.5vw, 40px);
+    font-weight: 400;
+    color: var(--verde-escuro);
+    line-height: 1.25;
+    margin-bottom: 28px;
+  }
+
+  .secao-titulo em { font-style: italic; }
+
+  .secao-corpo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(18px, 2.5vw, 21px);
+    font-weight: 300;
+    color: var(--suave);
+    line-height: 1.75;
+  }
+
+  .secao-corpo p + p { margin-top: 20px; }
+
+  .divisor {
+    border: none;
+    border-top: 1px solid var(--creme-escuro);
+    margin: 0;
+  }
+
+  /* ── O QUE É ──────────────────────────────── */
+  .oque-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    margin-top: 40px;
+    background: var(--creme-escuro);
+    border: 1px solid var(--creme-escuro);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+
+  .oque-item {
+    background: var(--branco);
+    padding: 32px 28px;
+  }
+
+  .oque-numero {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 36px;
+    font-weight: 300;
+    color: var(--dourado);
+    line-height: 1;
+    margin-bottom: 12px;
+    display: block;
+  }
+
+  .oque-titulo {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--verde);
+    margin-bottom: 8px;
+    letter-spacing: 0.3px;
+  }
+
+  .oque-desc {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    color: var(--suave);
+    line-height: 1.6;
+  }
+
+  /* ── COMO FUNCIONA ────────────────────────── */
+  .como-bg {
+    background: var(--verde);
+    padding: 72px 24px;
+  }
+
+  .como-inner {
+    max-width: 760px;
+    margin: 0 auto;
+  }
+
+  .como-eyebrow {
+    font-family: 'Inter', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--dourado-claro);
+    margin-bottom: 16px;
+  }
+
+  .como-titulo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(26px, 4.5vw, 40px);
+    font-weight: 400;
+    color: var(--branco);
+    line-height: 1.25;
+    margin-bottom: 48px;
+  }
+
+  .como-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .como-step {
+    display: flex;
+    gap: 28px;
+    align-items: flex-start;
+    padding: 28px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .como-step:last-child { border-bottom: none; }
+
+  .step-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 42px;
+    font-weight: 300;
+    color: var(--dourado);
+    line-height: 1;
+    flex-shrink: 0;
+    width: 44px;
+    margin-top: -4px;
+  }
+
+  .step-info {}
+
+  .step-titulo {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--branco);
+    margin-bottom: 6px;
+    letter-spacing: 0.2px;
+  }
+
+  .step-desc {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.65;
+  }
+
+  /* ── PARA QUEM ────────────────────────────── */
+  .paraquem-lista {
+    margin-top: 36px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border: 1px solid var(--creme-escuro);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+
+  .paraquem-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 24px 28px;
+    background: var(--branco);
+    border-bottom: 1px solid var(--creme-escuro);
+  }
+
+  .paraquem-item:last-child { border-bottom: none; }
+
+  .paraquem-icone {
+    font-size: 18px;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  .paraquem-texto {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    color: var(--texto);
+    line-height: 1.6;
+  }
+
+  .paraquem-texto strong { color: var(--verde); font-weight: 600; }
+
+  /* ── IVAN ─────────────────────────────────── */
+  .ivan-bg {
+    background: var(--creme-escuro);
+    padding: 72px 24px;
+  }
+
+  .ivan-inner {
+    max-width: 760px;
+    margin: 0 auto;
+  }
+
+  .ivan-quote {
+    border-left: 3px solid var(--dourado);
+    padding: 28px 32px;
+    background: var(--branco);
+    border-radius: 0 3px 3px 0;
+    margin-bottom: 32px;
+  }
+
+  .ivan-quote p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(20px, 3vw, 26px);
+    font-weight: 400;
+    font-style: italic;
+    color: var(--texto);
+    line-height: 1.6;
+  }
+
+  .ivan-bio {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    color: var(--suave);
+    line-height: 1.75;
+  }
+
+  .ivan-bio strong { color: var(--verde); font-weight: 600; }
+
+  /* ── NÃO É PARA QUEM ─────────────────────── */
+  .nao-lista {
+    margin-top: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .nao-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    color: var(--suave);
+    line-height: 1.6;
+  }
+
+  .nao-x {
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--creme-escuro);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    color: #999;
+    margin-top: 1px;
+    font-weight: 600;
+  }
+
+  /* ── CTA FINAL ────────────────────────────── */
+  .cta-final {
+    background: var(--verde);
+    padding: 80px 24px;
+    text-align: center;
+  }
+
+  .cta-final-inner {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .cta-final-eyebrow {
+    font-family: 'Inter', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--dourado-claro);
+    margin-bottom: 20px;
+  }
+
+  .cta-final-titulo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(28px, 5vw, 44px);
+    font-weight: 400;
+    color: var(--branco);
+    line-height: 1.25;
+    margin-bottom: 16px;
+  }
+
+  .cta-final-titulo em { font-style: italic; color: var(--dourado-claro); }
+
+  .cta-final-sub {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.65;
+    margin-bottom: 44px;
+  }
+
+  .cta-preco-bloco {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 3px;
+    padding: 28px 32px;
+    margin-bottom: 32px;
+    text-align: left;
+  }
+
+  .cta-preco-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.35);
+    margin-bottom: 8px;
+  }
+
+  .cta-preco-valor {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 48px;
+    font-weight: 300;
+    color: var(--branco);
+    line-height: 1;
+    margin-bottom: 12px;
+  }
+
+  .cta-preco-inclui {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    color: rgba(255,255,255,0.45);
+    line-height: 1.8;
+  }
+
+  .cta-preco-inclui span {
+    display: block;
+    padding-left: 16px;
+    position: relative;
+  }
+
+  .cta-preco-inclui span::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--dourado);
+  }
+
+  .btn-cta-final {
+    display: block;
+    width: 100%;
+    background: var(--dourado);
+    color: var(--branco);
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 22px 36px;
+    border: none;
+    cursor: pointer;
+    border-radius: 2px;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.15s;
+    margin-bottom: 16px;
+  }
+
+  .btn-cta-final:hover {
+    background: var(--dourado-claro);
+    transform: translateY(-1px);
+  }
+
+  .cta-garantia {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    color: rgba(255,255,255,0.3);
+    line-height: 1.6;
+  }
+
+  /* ── RODAPÉ ───────────────────────────────── */
+  .rodape {
+    background: var(--verde-escuro);
+    padding: 32px 24px;
+    text-align: center;
+  }
+
+  .rodape p {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    color: rgba(255,255,255,0.3);
+    line-height: 1.8;
+  }
+
+  /* ── MOBILE ───────────────────────────────── */
+  @media (max-width: 600px) {
+    .oque-grid { grid-template-columns: 1fr; }
+    .hero { padding: 56px 20px 64px; }
+    .como-bg, .cta-final { padding: 56px 20px; }
+    .secao { padding: 56px 20px; }
+    .ivan-bg { padding: 56px 20px; }
+    .cta-preco-bloco { padding: 24px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ── HERO ──────────────────────────────────────── -->
+<section class="hero">
+  <div class="hero-eyebrow">Diagnóstico Estratégico Patrimonial</div>
+  <h1 class="hero-titulo">
+    Você sabe onde está.<br>
+    <em>Ainda não sabe para onde ir.</em>
+  </h1>
+  <p class="hero-sub">Uma análise personalizada do seu patrimônio — e um plano concreto para reduzir sua dependência do Brasil.</p>
+  <div class="hero-cta-bloco">
+    <a href="LINK_HOTMART_597" class="btn-hero">Quero meu diagnóstico</a>
+    <span class="hero-preco">Investimento único de <strong>R$ 597,00</strong></span>
+  </div>
+</section>
+
+<!-- ── TENSÃO ─────────────────────────────────────── -->
+<section class="tensao">
+  <span class="tensao-numero">80%</span>
+  <span class="tensao-rotulo">dos investidores brasileiros</span>
+  <p class="tensao-frase">têm mais de 80% do patrimônio dependendo exclusivamente do Brasil.<br><em>O scanner mostrou onde você está nessa escala.</em><br>O Diagnóstico mostra o que fazer a partir daí.</p>
+</section>
+
+<!-- ── O QUE É ─────────────────────────────────────── -->
+<section class="secao">
+  <div class="secao-eyebrow">O que você recebe</div>
+  <h2 class="secao-titulo">Não é uma consulta genérica.<br><em>É uma análise construída sobre o seu caso.</em></h2>
+  <div class="secao-corpo">
+    <p>Baseado nas suas respostas ao scanner e no questionário estruturado que você preenche após a contratação, Ivan Vianna analisa sua situação patrimonial real — concentração, exposição cambial, estrutura institucional, sucessão — e entrega um mapa claro de onde você está e para onde pode ir.</p>
+  </div>
+
+  <div class="oque-grid">
+    <div class="oque-item">
+      <span class="oque-numero">01</span>
+      <div class="oque-titulo">Questionário estruturado</div>
+      <p class="oque-desc">Após o pagamento, você recebe um formulário com perguntas específicas sobre seu patrimônio, objetivos e estrutura atual.</p>
+    </div>
+    <div class="oque-item">
+      <span class="oque-numero">02</span>
+      <div class="oque-titulo">Mapa patrimonial personalizado</div>
+      <p class="oque-desc">Ivan analisa suas respostas e produz um mapa visual de onde você está — com os pontos de vulnerabilidade identificados e priorizados.</p>
+    </div>
+    <div class="oque-item">
+      <span class="oque-numero">03</span>
+      <div class="oque-titulo">Orientações concretas</div>
+      <p class="oque-desc">Não princípios gerais. Direcionamentos específicos para o seu caso: o que fazer primeiro, o que evitar, por onde começar.</p>
+    </div>
+    <div class="oque-item">
+      <span class="oque-numero">04</span>
+      <div class="oque-titulo">Sessão de 1 hora com Ivan</div>
+      <p class="oque-desc">Após receber o mapa e as orientações, você agenda uma sessão para aprofundar, tirar dúvidas e definir os próximos passos com clareza.</p>
+    </div>
+  </div>
+</section>
+
+<hr class="divisor">
+
+<!-- ── COMO FUNCIONA ──────────────────────────────── -->
+<section class="como-bg">
+  <div class="como-inner">
+    <div class="como-eyebrow">Como funciona</div>
+    <h2 class="como-titulo">Do pagamento ao plano,<br>em menos de uma semana.</h2>
+    <div class="como-steps">
+      <div class="como-step">
+        <span class="step-num">1</span>
+        <div class="step-info">
+          <div class="step-titulo">Você contrata e recebe o questionário</div>
+          <p class="step-desc">Imediatamente após o pagamento, você recebe acesso ao questionário estruturado. São perguntas objetivas sobre sua situação patrimonial atual — leva menos de 20 minutos.</p>
+        </div>
+      </div>
+      <div class="como-step">
+        <span class="step-num">2</span>
+        <div class="step-info">
+          <div class="step-titulo">Ivan analisa e produz seu mapa</div>
+          <p class="step-desc">Em até 48 horas após o envio das respostas, Ivan Vianna analisa sua situação e produz o mapa patrimonial personalizado com orientações específicas para o seu caso.</p>
+        </div>
+      </div>
+      <div class="como-step">
+        <span class="step-num">3</span>
+        <div class="step-info">
+          <div class="step-titulo">Você agenda a sessão de 1 hora</div>
+          <p class="step-desc">Com o mapa em mãos, você agenda uma sessão de uma hora com Ivan para aprofundar a análise, esclarecer dúvidas e definir os próximos passos concretos.</p>
+        </div>
+      </div>
+      <div class="como-step">
+        <span class="step-num">4</span>
+        <div class="step-info">
+          <div class="step-titulo">Você sai com um plano, não com dúvidas</div>
+          <p class="step-desc">Ao final do processo, você tem clareza sobre onde está, o que representa risco real no seu patrimônio, e o que fazer — com prioridade e sequência definidas.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── PARA QUEM ───────────────────────────────────── -->
+<section class="secao">
+  <div class="secao-eyebrow">Para quem é</div>
+  <h2 class="secao-titulo">Para quem já sabe que tem um problema.<br><em>E quer saber exatamente o que fazer.</em></h2>
+
+  <div class="paraquem-lista">
+    <div class="paraquem-item">
+      <span class="paraquem-icone">→</span>
+      <p class="paraquem-texto"><strong>Empresários e executivos</strong> com patrimônio relevante concentrado no Brasil que querem entender o risco real dessa concentração e como reduzir a dependência de forma estruturada.</p>
+    </div>
+    <div class="paraquem-item">
+      <span class="paraquem-icone">→</span>
+      <p class="paraquem-texto"><strong>Profissionais liberais</strong> — médicos, advogados, engenheiros — que acumularam patrimônio ao longo da carreira e ainda não estruturaram a proteção e a sucessão adequadas.</p>
+    </div>
+    <div class="paraquem-item">
+      <span class="paraquem-icone">→</span>
+      <p class="paraquem-texto"><strong>Investidores que já iniciaram a internacionalização</strong> mas não têm clareza sobre o que falta, quais as lacunas abertas e qual a sequência correta dos próximos passos.</p>
+    </div>
+    <div class="paraquem-item">
+      <span class="paraquem-icone">→</span>
+      <p class="paraquem-texto"><strong>Quem acabou de fazer o scanner</strong> e recebeu um resultado que revelou vulnerabilidades que nunca tinham sido mapeadas com clareza.</p>
+    </div>
+  </div>
+</section>
+
+<hr class="divisor">
+
+<!-- ── NÃO É PARA QUEM ────────────────────────────── -->
+<section class="secao" style="padding-top: 56px; padding-bottom: 56px;">
+  <div class="secao-eyebrow">Não é para quem</div>
+  <h2 class="secao-titulo" style="font-size: clamp(22px, 3.5vw, 32px);">Honestidade antes da contratação.</h2>
+  <div class="nao-lista">
+    <div class="nao-item">
+      <span class="nao-x">×</span>
+      Está buscando recomendações de ativos ou carteiras de investimento.
+    </div>
+    <div class="nao-item">
+      <span class="nao-x">×</span>
+      Quer uma segunda opinião genérica sobre o mercado.
+    </div>
+    <div class="nao-item">
+      <span class="nao-x">×</span>
+      Ainda não tem patrimônio relevante para estruturar.
+    </div>
+    <div class="nao-item">
+      <span class="nao-x">×</span>
+      Procura promessas de retorno ou estratégias de curto prazo.
+    </div>
+  </div>
+</section>
+
+<hr class="divisor">
+
+<!-- ── IVAN ───────────────────────────────────────── -->
+<section class="ivan-bg">
+  <div class="ivan-inner">
+    <div class="secao-eyebrow">Quem faz a análise</div>
+    <h2 class="secao-titulo" style="color: var(--verde-escuro); margin-bottom: 32px;">Ivan Vianna, CFP®</h2>
+
+    <div class="ivan-quote">
+      <p>"Minha maior preocupação com os investidores brasileiros não é retorno. É concentração. Quem depende de um único país, uma única moeda e um único sistema financeiro não tem patrimônio estruturado — tem patrimônio exposto."</p>
+    </div>
+
+    <p class="ivan-bio">
+      <strong>Planejador financeiro certificado CFP®</strong>, especializado em arquitetura patrimonial global e internacionalização de patrimônio para investidores brasileiros. Atua com empresários, executivos, profissionais liberais e famílias que buscam estruturar patrimônio com rigor técnico, profundidade institucional e visão de longo prazo.<br><br>
+      Autor da série <strong>Patrimônio Global</strong> no LinkedIn, com foco em proteção patrimonial, diversificação real e sucessão internacional.
+    </p>
+  </div>
+</section>
+
+<!-- ── CTA FINAL ───────────────────────────────────── -->
+<section class="cta-final">
+  <div class="cta-final-inner">
+    <div class="cta-final-eyebrow">Diagnóstico Estratégico Patrimonial</div>
+    <h2 class="cta-final-titulo">
+      Você já sabe sua dependência.<br>
+      <em>Agora precisa de um plano.</em>
+    </h2>
+    <p class="cta-final-sub">Uma análise personalizada, um mapa claro do seu patrimônio e uma hora com Ivan Vianna para definir os próximos passos.</p>
+
+    <div class="cta-preco-bloco">
+      <div class="cta-preco-label">Investimento único</div>
+      <div class="cta-preco-valor">R$ 597,00</div>
+      <div class="cta-preco-inclui">
+        <span>Questionário patrimonial estruturado</span>
+        <span>Mapa personalizado com orientações específicas</span>
+        <span>Sessão de 1 hora com Ivan Vianna, CFP®</span>
+        <span>Entrega em até 48 horas após o envio das respostas</span>
+      </div>
+    </div>
+
+    <a href="LINK_HOTMART_597" class="btn-cta-final">Contratar diagnóstico — R$ 597,00</a>
+    <p class="cta-garantia">Pagamento processado com segurança pela Hotmart.<br>Após a confirmação, você recebe o questionário imediatamente.</p>
+  </div>
+</section>
+
+<!-- ── RODAPÉ ──────────────────────────────────────── -->
+<footer class="rodape">
+  <p><strong style="color:rgba(255,255,255,0.5);">Ivan Vianna, CFP®</strong> · Patrimônio Global · Método VIDA™</p>
+  <p>Planejamento patrimonial global para investidores brasileiros</p>
+</footer>
+
+</body>
+</html>
