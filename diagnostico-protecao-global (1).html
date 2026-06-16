@@ -1,0 +1,1706 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Diagnóstico VIDA · Proteção Patrimonial Global™ · Ivan Vianna CFP®</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --verde:      #1A3C2E;
+  --verde-m:    #2E5C46;
+  --verde-c:    #1e4535;
+  --dourado:    #d7ae4d;
+  --dourado-l:  #f8e38c;
+  --branco:     #FFFFFF;
+  --off:        #f5f0e8;
+  --cinza:      rgba(255,255,255,0.65);
+  --cinza-e:    rgba(255,255,255,0.35);
+
+  --risco-alto:  #c0392b;
+  --risco-medio: #d4820a;
+  --risco-baixo: #2E5C46;
+
+  --d1: #2980b9;
+  --d2: #8e44ad;
+  --d3: #c0392b;
+  --d4: #16a085;
+  --d5: #d35400;
+  --d6: #27ae60;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 16px; scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: #0a1a10;
+  color: var(--branco);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* ── CAPA ── */
+#capa {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 24px;
+  background: radial-gradient(ellipse at 30% 20%, rgba(46,92,70,0.4) 0%, transparent 60%),
+              radial-gradient(ellipse at 70% 80%, rgba(26,60,46,0.3) 0%, transparent 60%),
+              #0a1a10;
+  text-align: center;
+}
+
+.capa-selo {
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--dourado);
+  margin-bottom: 32px;
+  opacity: 0.85;
+}
+
+.capa-titulo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.2rem, 6vw, 3.6rem);
+  font-weight: 300;
+  line-height: 1.15;
+  color: var(--branco);
+  max-width: 680px;
+  margin-bottom: 10px;
+}
+
+.capa-titulo em {
+  font-style: italic;
+  background: linear-gradient(135deg, var(--dourado-l), var(--dourado), var(--dourado-l));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.capa-sub {
+  font-size: 1.05rem;
+  font-weight: 300;
+  color: var(--cinza);
+  max-width: 520px;
+  margin: 20px auto 48px;
+  line-height: 1.7;
+}
+
+.capa-meta {
+  display: flex;
+  gap: 32px;
+  justify-content: center;
+  margin-bottom: 52px;
+  flex-wrap: wrap;
+}
+
+.meta-item {
+  text-align: center;
+}
+
+.meta-n {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.4rem;
+  font-weight: 600;
+  background: linear-gradient(135deg, var(--dourado-l), var(--dourado));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+}
+
+.meta-l {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--cinza-e);
+  margin-top: 4px;
+}
+
+/* campos de entrada */
+.capa-form {
+  width: 100%;
+  max-width: 440px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 28px;
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  text-align: left;
+}
+
+.campo label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--dourado);
+}
+
+.campo input, .campo select {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(215,174,77,0.25);
+  border-radius: 2px;
+  padding: 14px 16px;
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  color: var(--branco);
+  outline: none;
+  transition: border-color .2s;
+  -webkit-appearance: none;
+}
+
+.campo input::placeholder { color: var(--cinza-e); }
+
+.campo input:focus, .campo select:focus {
+  border-color: var(--dourado);
+}
+
+.campo select option { background: #1a2e1a; color: var(--branco); }
+
+.btn-iniciar {
+  width: 100%;
+  max-width: 440px;
+  padding: 18px 32px;
+  background: linear-gradient(135deg, var(--dourado-l), var(--dourado));
+  color: var(--verde);
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: .06em;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: opacity .2s, transform .15s;
+}
+
+.btn-iniciar:hover { opacity: .9; transform: translateY(-1px); }
+
+.capa-privacidade {
+  font-size: 11px;
+  color: var(--cinza-e);
+  margin-top: 16px;
+  max-width: 380px;
+  line-height: 1.6;
+}
+
+/* ── QUIZ ── */
+#quiz { display: none; min-height: 100vh; }
+
+.topo-quiz {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(10,26,16,0.95);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(215,174,77,0.15);
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.topo-marca {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: var(--dourado-l);
+  white-space: nowrap;
+}
+
+.progresso-barra-wrap {
+  flex: 1;
+  height: 3px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.progresso-barra-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--dourado), var(--dourado-l));
+  transition: width .4s ease;
+  width: 0%;
+}
+
+.topo-etapa {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--cinza-e);
+  white-space: nowrap;
+}
+
+/* ── BLOCO ── */
+.bloco {
+  display: none;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 56px 24px 80px;
+}
+
+.bloco.ativo { display: block; }
+
+.bloco-eyebrow {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.bloco-titulo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  font-weight: 300;
+  line-height: 1.2;
+  color: var(--branco);
+  margin-bottom: 8px;
+}
+
+.bloco-desc {
+  font-size: 14px;
+  color: var(--cinza);
+  margin-bottom: 40px;
+  max-width: 560px;
+  line-height: 1.7;
+}
+
+.pergunta-wrap {
+  margin-bottom: 36px;
+}
+
+.pergunta-num {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: var(--cinza-e);
+  margin-bottom: 10px;
+}
+
+.pergunta-texto {
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--branco);
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+.opcoes { display: flex; flex-direction: column; gap: 10px; }
+
+.opcao {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 16px 18px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 2px;
+  cursor: pointer;
+  transition: all .18s;
+  text-align: left;
+  width: 100%;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: rgba(255,255,255,0.80);
+  line-height: 1.55;
+}
+
+.opcao:hover {
+  border-color: rgba(215,174,77,0.4);
+  background: rgba(215,174,77,0.06);
+  color: var(--branco);
+}
+
+.opcao.selecionada {
+  border-color: var(--dourado);
+  background: rgba(215,174,77,0.12);
+  color: var(--branco);
+}
+
+.opcao-letra {
+  min-width: 26px;
+  height: 26px;
+  border-radius: 1px;
+  background: rgba(255,255,255,0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .05em;
+  color: var(--cinza-e);
+  flex-shrink: 0;
+  margin-top: 1px;
+  transition: all .18s;
+}
+
+.opcao.selecionada .opcao-letra {
+  background: var(--dourado);
+  color: var(--verde);
+}
+
+.nav-bloco {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+  margin-top: 40px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+.btn-anterior {
+  padding: 14px 24px;
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.18);
+  border-radius: 2px;
+  color: var(--cinza);
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all .18s;
+}
+
+.btn-anterior:hover { border-color: rgba(255,255,255,0.4); color: var(--branco); }
+
+.btn-proximo {
+  padding: 14px 28px;
+  background: var(--verde-m);
+  border: 1px solid var(--verde-m);
+  border-radius: 2px;
+  color: var(--branco);
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all .18s;
+  letter-spacing: .04em;
+}
+
+.btn-proximo:hover { background: #3a7058; }
+.btn-proximo:disabled { opacity: .35; cursor: not-allowed; }
+
+.btn-gerar {
+  padding: 16px 36px;
+  background: linear-gradient(135deg, var(--dourado-l), var(--dourado));
+  border: none;
+  border-radius: 2px;
+  color: var(--verde);
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all .18s;
+  letter-spacing: .04em;
+}
+
+.btn-gerar:hover { opacity: .9; transform: translateY(-1px); }
+.btn-gerar:disabled { opacity: .35; cursor: not-allowed; }
+
+/* ── RESULTADO ── */
+#resultado { display: none; }
+
+.res-header {
+  background: var(--verde);
+  padding: 48px 24px 40px;
+  text-align: center;
+  border-bottom: 2px solid rgba(215,174,77,0.3);
+}
+
+.res-eyebrow {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--dourado);
+  margin-bottom: 24px;
+}
+
+.res-nome-cliente {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  font-weight: 300;
+  color: var(--branco);
+  margin-bottom: 4px;
+}
+
+.res-subtitulo {
+  font-size: 13px;
+  color: var(--cinza);
+  margin-bottom: 40px;
+}
+
+.res-perfil-badge {
+  display: inline-block;
+  padding: 10px 28px;
+  border-radius: 2px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.res-perfil-desc {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.3rem;
+  font-weight: 300;
+  font-style: italic;
+  color: rgba(255,255,255,0.75);
+  max-width: 520px;
+  margin: 0 auto;
+  line-height: 1.5;
+}
+
+/* score geral */
+.res-score-wrap {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 40px 24px;
+}
+
+.res-score-geral {
+  text-align: center;
+  margin-bottom: 48px;
+  padding: 32px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(215,174,77,0.15);
+  border-radius: 3px;
+}
+
+.score-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--dourado);
+  margin-bottom: 8px;
+}
+
+.score-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(3.5rem, 10vw, 5.5rem);
+  font-weight: 600;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.score-max {
+  font-size: 13px;
+  color: var(--cinza-e);
+}
+
+/* dimensões */
+.res-titulo-secao {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--dourado);
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(215,174,77,0.15);
+}
+
+.dimensoes-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 48px;
+}
+
+.dim-card {
+  padding: 20px 20px 16px;
+  border-radius: 2px;
+  border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(255,255,255,0.03);
+}
+
+.dim-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.dim-nome {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--branco);
+  line-height: 1.3;
+}
+
+.dim-pergunta-base {
+  font-size: 11px;
+  color: var(--cinza-e);
+  margin-top: 2px;
+  font-style: italic;
+}
+
+.dim-badge {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 1px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.dim-badge.alto  { background: rgba(192,57,43,0.2);  color: #e74c3c; border: 1px solid rgba(192,57,43,0.3); }
+.dim-badge.medio { background: rgba(212,130,10,0.2); color: #e67e22; border: 1px solid rgba(212,130,10,0.3); }
+.dim-badge.baixo { background: rgba(46,92,70,0.3);   color: #2ecc71; border: 1px solid rgba(46,92,70,0.4); }
+
+.dim-barra-wrap {
+  height: 4px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 2px;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.dim-barra-fill {
+  height: 100%;
+  border-radius: 2px;
+  transition: width 1s ease;
+}
+
+.dim-interpretacao {
+  font-size: 12px;
+  color: var(--cinza);
+  line-height: 1.6;
+}
+
+/* vulnerabilidades */
+.vuln-lista {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 48px;
+}
+
+.vuln-item {
+  display: flex;
+  gap: 16px;
+  padding: 18px 18px;
+  background: rgba(192,57,43,0.08);
+  border: 1px solid rgba(192,57,43,0.2);
+  border-left: 3px solid var(--risco-alto);
+  border-radius: 2px;
+}
+
+.vuln-item.media {
+  background: rgba(212,130,10,0.07);
+  border-color: rgba(212,130,10,0.2);
+  border-left-color: var(--risco-medio);
+}
+
+.vuln-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2rem;
+  font-weight: 600;
+  color: rgba(255,255,255,0.15);
+  line-height: 1;
+  min-width: 28px;
+  flex-shrink: 0;
+}
+
+.vuln-corpo {}
+
+.vuln-titulo {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--branco);
+  margin-bottom: 4px;
+}
+
+.vuln-desc {
+  font-size: 12px;
+  color: var(--cinza);
+  line-height: 1.6;
+}
+
+/* plano de ação */
+.plano-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+  margin-bottom: 48px;
+}
+
+.plano-col {}
+
+.plano-col-header {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid;
+}
+
+.plano-col-header.imediato { color: var(--risco-alto); border-color: var(--risco-alto); }
+.plano-col-header.curto    { color: var(--risco-medio); border-color: var(--risco-medio); }
+.plano-col-header.estrut   { color: var(--dourado); border-color: var(--dourado); }
+
+.plano-items { display: flex; flex-direction: column; gap: 10px; }
+
+.plano-item {
+  padding: 14px 16px;
+  border-radius: 2px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+  font-size: 13px;
+  color: var(--cinza);
+  line-height: 1.55;
+}
+
+/* CTA */
+.res-cta {
+  background: var(--verde);
+  border-top: 2px solid rgba(215,174,77,0.25);
+  padding: 56px 24px;
+  text-align: center;
+}
+
+.cta-olho {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--dourado);
+  margin-bottom: 16px;
+}
+
+.cta-titulo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  font-weight: 300;
+  color: var(--branco);
+  max-width: 560px;
+  margin: 0 auto 16px;
+  line-height: 1.3;
+}
+
+.cta-corpo {
+  font-size: 15px;
+  color: var(--cinza);
+  max-width: 500px;
+  margin: 0 auto 36px;
+  line-height: 1.7;
+}
+
+.btn-cta {
+  display: inline-block;
+  padding: 18px 40px;
+  background: linear-gradient(135deg, var(--dourado-l), var(--dourado));
+  color: var(--verde);
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: .04em;
+  border-radius: 2px;
+  text-decoration: none;
+  transition: opacity .2s;
+  margin-bottom: 16px;
+  display: block;
+  max-width: 360px;
+  margin: 0 auto 16px;
+}
+
+.btn-cta:hover { opacity: .9; }
+
+.cta-nota {
+  font-size: 12px;
+  color: var(--cinza-e);
+  margin-top: 16px;
+}
+
+.btn-refazer {
+  background: none;
+  border: 1px solid rgba(255,255,255,0.18);
+  color: var(--cinza-e);
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  padding: 10px 20px;
+  border-radius: 2px;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: all .18s;
+}
+
+.btn-refazer:hover { border-color: rgba(255,255,255,0.35); color: var(--cinza); }
+
+.assinatura {
+  padding: 24px;
+  text-align: center;
+  border-top: 1px solid rgba(215,174,77,0.1);
+  background: rgba(0,0,0,0.2);
+}
+
+.assinatura-nome {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: var(--dourado-l);
+  margin-bottom: 4px;
+}
+
+.assinatura-cargo {
+  font-size: 11px;
+  color: var(--cinza-e);
+  line-height: 1.6;
+}
+
+@media (max-width: 600px) {
+  .capa-meta { gap: 20px; }
+  .plano-grid { grid-template-columns: 1fr; }
+  .topo-quiz { padding: 12px 16px; }
+  .topo-marca { font-size: 0.9rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- ══════════ CAPA ══════════ -->
+<section id="capa">
+  <div class="capa-selo">Método VIDA™ · Ivan Vianna CFP®</div>
+
+  <h1 class="capa-titulo">
+    Mapa de <em>Vulnerabilidades</em><br>Patrimoniais Globais™
+  </h1>
+
+  <p class="capa-sub">
+    Seis dimensões de dependência. Trinta perguntas objetivas.<br>
+    Um diagnóstico completo do seu grau de exposição ao Brasil.
+  </p>
+
+  <div class="capa-meta">
+    <div class="meta-item">
+      <div class="meta-n">6</div>
+      <div class="meta-l">Dimensões</div>
+    </div>
+    <div class="meta-item">
+      <div class="meta-n">30</div>
+      <div class="meta-l">Perguntas</div>
+    </div>
+    <div class="meta-item">
+      <div class="meta-n">~12</div>
+      <div class="meta-l">Minutos</div>
+    </div>
+  </div>
+
+  <div class="capa-form">
+    <div class="campo">
+      <label for="inp-nome">Seu nome</label>
+      <input type="text" id="inp-nome" placeholder="Como prefere ser chamado" autocomplete="name">
+    </div>
+    <div class="campo">
+      <label for="inp-email">E-mail</label>
+      <input type="email" id="inp-email" placeholder="seu@email.com" autocomplete="email">
+    </div>
+    <div class="campo">
+      <label for="inp-patrimonio">Faixa patrimonial aproximada</label>
+      <select id="inp-patrimonio">
+        <option value="" disabled selected>Selecione</option>
+        <option value="500k">Até R$ 500 mil</option>
+        <option value="1m">R$ 500 mil a R$ 1 milhão</option>
+        <option value="2m">R$ 1 milhão a R$ 2 milhões</option>
+        <option value="5m">R$ 2 milhões a R$ 5 milhões</option>
+        <option value="10m">R$ 5 milhões a R$ 10 milhões</option>
+        <option value="10m+">Acima de R$ 10 milhões</option>
+      </select>
+    </div>
+  </div>
+
+  <button class="btn-iniciar" onclick="iniciarDiagnostico()">Iniciar diagnóstico →</button>
+
+  <p class="capa-privacidade">
+    Seus dados são utilizados exclusivamente para personalização do diagnóstico e envio do relatório.<br>
+    Sem spam. Sem compartilhamento.
+  </p>
+</section>
+
+<!-- ══════════ QUIZ ══════════ -->
+<section id="quiz">
+  <div class="topo-quiz">
+    <span class="topo-marca">Diagnóstico VIDA · Proteção Global™</span>
+    <div class="progresso-barra-wrap">
+      <div class="progresso-barra-fill" id="progressoBarra"></div>
+    </div>
+    <span class="topo-etapa" id="textoEtapa">Dimensão 1 de 6</span>
+  </div>
+
+  <!-- BLOCO 1 — DEPENDÊNCIA GEOGRÁFICA -->
+  <div class="bloco ativo" id="b1">
+    <div class="bloco-eyebrow" style="color: var(--d1)">Dimensão 1 · Dependência Geográfica</div>
+    <h2 class="bloco-titulo">Quanto do seu patrimônio depende de um único país?</h2>
+    <p class="bloco-desc">Concentração geográfica é o ponto de partida. Um patrimônio construído em um único país está exposto ao risco desse país como um sistema — regulatório, político e econômico.</p>
+
+    <div class="pergunta-wrap">
+      <div class="pergunta-num">Pergunta 1 de 5</div>
+      <p class="pergunta-texto">Qual percentual do seu patrimônio total está fora do Brasil?</p>
+      <div class="opcoes" id="b1q1">
+        <button class="opcao" onclick="escolher('b1q1',0,this)"><span class="opcao-letra">A</span>Nada. Todo o patrimônio está no Brasil.</button>
+        <button class="opcao" onclick="escolher('b1q1',1,this)"><span class="opcao-letra">B</span>Menos de 10% — algum investimento pontual, sem estrutura.</button>
+        <button class="opcao" onclick="escolher('b1q1',2,this)"><span class="opcao-letra">C</span>Entre 10% e 30% — diversificação iniciada, mas ainda modesta.</button>
+        <button class="opcao" onclick="escolher('b1q1',3,this)"><span class="opcao-letra">D</span>Mais de 30% — diversificação geográfica relevante e estruturada.</button>
+      </div>
+    </div>
+
+    <div class="pergunta-wrap">
+      <div class="pergunta-num">Pergunta 2 de 5</div>
+      <p class="pergunta-texto">Se o Brasil decretasse controle de capitais por 12 meses, qual seria o impacto no seu patrimônio?</p>
+      <div class="opcoes" id="b1q2">
+        <button class="opcao" onclick="escolher('b1q2',0,this)"><span class="opcao-letra">A</span>Devastador — todo o patrimônio ficaria bloqueado no Brasil.</button>
+        <button class="opcao" onclick="escolher('b1q2',1,this)"><span class="opcao-letra">B</span>Grave — a maior parte ficaria bloqueada, com pequena margem fora.</button>
+        <button class="opcao" onclick="escolher('b1q2',2,this)"><span class="opcao-letra">C</span>Moderado — teria acesso parcial a recursos fora do Brasil.</button>
+        <button class="opcao" onclick="escolher('b1q2',3,this)"><span class="opcao-letra">D</span>Limitado — tenho estrutura relevante fora que funcionaria normalmente.</button>
+      </div>
+    </div>
+
+    <div class="pergunta-wrap">
+      <div class="pergunta-num">Pergunta 3 de 5</div>
+      <p class="pergunta-texto">Seus ativos no exterior estão registrados em quais jurisdições?</p>
+      <div class="opcoes" id="b1q3">
+        <button class="opcao" onclick="escolher('b1q3',0,this)"><span class="opcao-letra">A</span>Não tenho ativos no exterior.</button>
+        <button class="opcao" onclick="escolher('b1q3',1,this)"><span class="opcao-letra">B</span>Em apenas uma jurisdição — sem diversificação jurisdicional.</button>
+        <button class="opcao" onclick="escolher('b1q3',2,this)"><span class="opcao-letra">C</span>Em duas jurisdições — alguma diversificação.</button>
+        <button class="opcao" onclick="escolher('b1q3',3,this)"><span class="opcao-letra">D</span>Em três ou mais jurisdições com estrutura legal adequada em cada uma.</button>
+      </div>
+    </div>
+
+    <div class="pergunta-wrap">
+      <div class="pergunta-num">Pergunta 4 de 5</div>
+      <p class="pergunta-texto">Sua principal fonte de renda passiva está concentrada em qual país?</p>
+      <div class="opcoes" id="b1q4">
+        <button class="opcao" onclick="escolher('b1q4',0,this)"><span class="opcao-letra">A</span>Inteiramente no Brasil — aluguéis, dividendos ou renda fixa local.</button>
+        <button class="opcao" onclick="escolher('b1q4',1,this)"><span class="opcao-letra">B</span>Majoritariamente no Brasil, com renda passiva exterior mínima.</button>
+        <button class="opcao" onclick="escolher('b1q4',2,this)"><span class="opcao-letra">C</span>Parcialmente no exterior — entre 20% e 50% da renda passiva.</button>
+        <button class="opcao" onclick="escolher('b1q4',3,this)"><span class="opcao-letra">D</span>Mais de 50% da renda passiva gerada fora do Brasil.</button>
+      </div>
+    </div>
+
+    <div class="pergunta-wrap">
+      <div class="pergunta-num">Pergunta 5 de 5</div>
+      <p class="pergunta-texto">Você declarou seus bens e direitos no exterior à Receita Federal (DCBE — Declaração de Capitais Brasileiros no Exterior)?</p>
+      <div class="opcoes" id="b1q5">
+        <button class="opcao" onclick="escolher('b1q5',0,this)"><span class="opcao-letra">A</span>Não tenho ativos no exterior para declarar.</button>
+        <button class="opcao" onclick="escolher('b1q5',1,this)"><span class="opcao-letra">B</span>Tenho ativos no exterior, mas não declarei — desconhecia a obrigação.</button>
+        <button class="opcao" onclick="escolher('b1q5',2,this)"><span class="opcao-letra">C</span>Declarei parcialmente — alguns ativos estão fora da DCBE.</button>
+        <button class="opcao" onclick="escolher('b1q5',3,this)"><span class="opcao-letra">D</span>Tenho DCBE atualizada para todos os ativos no exterior.</button>
+      </div>
+    </div>
+
+    <div class="nav-bloco">
+      <button class="btn-proximo" id="btn-b1" onclick="avancar(1)" disabled>Próxima dimensão →</button>
+    </div>
+  </div>
+
+  <!-- BLOCO 2 — DEPENDÊNCIA CAMBIAL -->
+  <div class="bloco" id="b2">
+    <div class="bloco-eyebrow" style="color: var(--d2)">Dimensão 2 · Dependência Cambial</div>
+    <h2 class="bloco-titulo">Qual é sua exposição real ao real?</h2>
+    <p class="bloco-desc">Não é apenas onde o patrimônio está. É em qual moeda ele existe, pensa e funciona. Um patrimônio em reais perde poder de compra sempre que o Brasil desvaloriza — independentemente de onde esteja investido.</p>
+
+    <div class="pergunta-wrap">
+      <div class="pergunta-num">Pergunta 1 de 5</div>
+      <p class="pergunta-texto">Qual percentual do seu patrimônio total está denominado em moeda estrangeira (dólar, euro ou outra)?</p>
+      <div class="opcoes" id="b2q1">
+        <button class="opcao" onclick="escolher('b2q1',0,this)"><span class="opcao-letra">A</span>Menos de 5% — praticamente tudo em real.</button>
+        <button class="opcao" onclick="escolher('b2q1',1,this)"><span class="opcao-letra">B</span>Entre 5% e 20% — exposição cambial modesta.</button>
+        <button class="opcao" onclick="escolher('b2q1',2,this)"><span class="opcoa-letra">C</span>Entre 20% e 40% — diversificação cambial em andamento.</button>
+        <button class="opcao" onclick="escolher('b2q1',3,this)"><span class="opcao-letra">D</span>Mais de 40% em moeda forte — proteção cambial estruturada.</button>
+      </div>
+    </div>
+
+    <div class="pergunta-wrap">
+      <div class="pergunta-num">Pergunta 2 de 5</div>
+      <p class="pergunta-texto">Se o real desvalorizasse 40% nos próximos 12 meses, qual seria o impacto real no seu poder de compra?</p>
+      <div class="opcoes" id="b2q2">
+        <button class="opcao" onclick="escolher('b2q2',0,this)"><span class="opcao-letra">A</span>Perderia 40% do poder de compra — todo o patrimônio é em real.</button>
+        <button class="opcao" onclick="escolher('b2q2',1,this)"><span class="opcao-letra">B</span>Perderia muito — menos de 15% está protegido cambialmente.</button>
+        <button class="opcao" onclick="escolher('b2q2',2,this)"><span class="opcao-letra">C</span>Perderia parcialmente — tenho proteção cambial relevante mas insuficiente.</button>
+        <button class="opcao" onclick="escolher('b2q2',3,this)"><span class="opcao-letra">D</span>Impacto limitado — minha exposição cambial é diversificada e estruturada.</button>
+      </div>
+    </div>
+
+    <div class="pergunta-wrap">
+      <div class="pergunta-num">Pergunta 3 de 5</div>
+      <p class="pergunta-texto">Você tem renda recorrente em moeda estrangeira — dividendos, aluguéis, juros ou royalties em dólar ou euro?</p>
+      <div class="opcoes" id="b2q3">
+        <button class="opcao" onclick="escolher('b2q3',0,this)"><span class="opcao-letra">A</span>Não. Toda a renda é em real.</button>
+        <button class="opcao" onclick="escolher('b2q3',1,this)"><span class="opcao-letra">B</span>Pontualmente — algum valor eventual, sem fluxo regular.</button>
+        <button class="opcao" onclick="escolher('b2q3',2,this)"><span class="opcao-letra">C</span>Sim, mas representa menos de 20% da renda passiva total.</button>
+        <button class="opcao" onclick="escolher('b2q3',3,this)"><span class="opcao-letra">D</span>Sim — renda em moeda forte representa mais de 20% da renda passiva.</button>
+      </div>
+    </div>
+
+    <div class="pergunta-wrap">
+      <div class="pergunta-num">Pergunta 4 de 5</div>
+      <p class="pergunta-texto">Seus investimentos no Brasil que têm proteção cambial (BDRs, ETFs internacionais, fundos cambiais) representam qual proporção da carteira local?</p>
+      <div class="opcoes" id="b2q4">
+        <button class="opcao" onclick="escolher('b2q4',0,this)"><span class="opcao-letra">A</span>Menos de 5% — carteira local essencialmente sem proteção cambial.</button>
+        <button class="opcao" onclick="escolher('b2q4',1,this)"><span class="opcao-letra">B</span>Entre 5% e 15% — alguma proteção, mas marginal.</button>
+        <button class="opcao" onclick="escolher('b2q4',2,this)"><span class="opcao-letra">C</span>Entre 15% e 35% — exposição cambial relevante dentro do Brasil.</button>
+        <button class="opcao" onclick="escolher('b2q4',3,this)"><span class="opcao-letra">D</span>Mais de 35% — proteção cambial deliberada mesmo dentro da carteira local.</button>
+      </div>
+    </div>
+
+    <div class="pergunta-wrap">
+      <div class="pergunta-num">Pergunta 5 de 5</div>
+      <p class="pergunta-texto">Suas metas de longo prazo — aposentadoria, herança, viagens, educação dos filhos — estão calculadas em real ou em moeda forte?</p>
+      <div class="opcoes" id="b2q5">
+        <button class="opcao" onclick="escolher('b2q5',0,this)"><span class="opcao-letra">A</span>Todas em real — não considerei impacto cambial nas metas.</button>
+        <button class="opcao" onclick="escolher('b2q5',1,this)"><span class="opcao-letra">B</span>Majoritariamente em real, com ajustes pontuais por inflação local.</button>
+        <button class="opcao" onclick="escolher('b2q5',2,this)"><span class="opcao-letra">C</span>Parcialmente em moeda forte — algumas metas ancoradas em dólar.</button>
+        <button class="opcao" onclick="escolher('b2q5',3,this)"><span class="opcao-letra">D</span>As principais metas estão ancoradas em moeda forte com planejamento cambial.</button>
+      </div>
+    </div>
+
+    <div class="nav-bloco">
+      <button class="btn-anterior" onclick="voltar(2)">← Anterior</button>
+      <button class="btn-proximo" id="btn-b2" onclick="avancar(2)" disabled>Próxima dimensão →</button>
+    </div>
+  </div>
+
+  <!-- BLOCO 3 — DEPENDÊNCIA JURÍDICA E SUCESSÓRIA -->
+  <div class="bloco" id="b3">
+    <div class="bloco-eyebrow" style="color: var(--d3)">Dimensão 3 · Dependência Jurídica e Sucessória</div>
+    <h2 class="bloco-titulo">Sua estrutura jurídica protege ou expõe?</h2>
+    <p class="bloco-desc">Ativos no exterior sem estrutura jurídica adequada criam vulnerabilidades invisíveis: estate tax americano, probate, bloqueio de acesso em incapacidade. A pergunta não é ter ativos fora — é como eles estão estruturados.</p>
+
+    <div class="pergunta-wrap">
+      <div class="pergunta-num">Pergunta 1 de 5</div>
+      <p class="pergunta-texto">Seus ativos no exterior — contas em corretora, imóveis, participações — estão no nome de pessoa física brasileira sem estrutura de proteção?</p>
+      <div class="opcoes" id="b3q1">
+        <button class="opcao" onclick="escolher('b3q1',0,this)"><span class="opcao-letra">A</span>Não tenho ativos no exterior.</button>
+        <button class="opcao" onclick="escolher('b3q1',1,this)"><span class="opcao-letra">B</span>Sim — tudo no nome de pessoa física, sem estrutura de proteção.</button>
+        <button class="opcao" onclick="escolher('b3q1',2,this)"><span class="opcao-letra">C</span>Parte está em PF, parte em estrutura (holding, LLC ou similar).</button>
+        <button class="opcao" onclick="escolher('b3q1',3,this)"><span class="opcao-letra">D</span>Estruturado — ativos relevantes em holdings, trusts ou entidades offshore adequadas.</button>
+      </div>
+    </div>
+
+    <div class="pergunta-wrap">
+      <div class="pergunta-num">Pergunta 2 de 5</div>
+      <p class="pergunta-texto">Se você falecesse hoje com ativos em corretora americana, seus herdeiros saberiam como acessá-los e em quanto tempo conseguiriam?</p>
+      <div class="opcoes" id="b3q2">
+        <button class="opcao" onclick="escolher('b3q2',0,this)"><span class="opcao-letra">A</span>Não sei — nunca discutimos isso e não há estrutura definida.</button>
+        <button class="opcao" onclick="escolher('b3q2',1,this)"><span class="opcao-letra">B</span>Ficaria bloqueado por meses ou anos — processo judicial americano (probate).</button>
+        <button class="opcao" onclick="escolher('b3q2',2,this)"><span class="opcao-letra">C</span>Tenho beneficiário designado (TOD) — transferência direta, sem probate.</button>
+        <button class="opcao" onclick="escolher('b3q2',3,this)"><span class="opcao-letra">D</span>Tenho trust ou holding — acesso imediato e estruturado para os herdeiros.</button>
+      </div>
+    </div>
+
+    <div class="pergunta-wrap">
+      <div class="pergunta-num">Pergunta 3 de 5</div>
+      <p class="pergunta-texto">Você está exposto ao estate tax americano? (Não residentes têm isenção de apenas US$ 60 mil em ativos americanos — acima disso, alíquota pode chegar a 40%.)</p>
+      <div class="opcoes" id="b3q3">
+        <button class="opcao" onclick="escolher('b3q3',0,this)"><span class="opcao-letra">A</span>Tenho mais de US$ 60 mil em ativos americanos em nome de PF — estou exposto e não havia planejado isso.</button>
+        <button class="opcao" onclick="escolher('b3q3',1,this)"><span class="opcao-letra">B</span>Tenho ativos americanos, mas não sabia desse limite — preciso verificar.</button>
+        <button class="opcao" onclick="escolher('b3q3',2,this)"><span class="opcao-letra">C</span>Tenho ativos americanos e já estruturei para mitigar o estate tax.</button>
+        <button class="opcao" onclick="escolher('b3q3',3,this)"><span class="opcao-letra">D</span>Não tenho ativos americanos diretamente em PF — sem exposição a essa regra.</button>
+      </div>
+    </div>
+
+    <div class="pergunta-wrap">
+      <div class="pergunta-num">Pergunta 4 de 5</div>
+      <p class="pergunta-texto">Se você ficasse incapacitado temporariamente por 6 meses (AVC, acidente, doença grave), quem poderia gerir seus ativos no exterior?</p>
+      <div class="opcoes" id="b3q4">
+        <button class="opcao" onclick="escolher('b3q4',0,this)"><span class="opcao-letra">A</span>Ninguém — não há mandato, procuração ou estrutura para isso.</button>
+        <button class="opcao" onclick="escolher('b3q4',1,this)"><span class="opcao-letra">B</span>Alguém de confiança tentaria, mas sem mandato formal — com muita dificuldade.</button>
+        <button class="opcao" onclick="escolher('b3q4',2,this)"><span class="opcao-letra">C</span>Tenho procuração, mas não tenho certeza se ela é válida para ativos no exterior.</button>
+        <button class="opcao" onclick="escolher('b3q4',3,this)"><span class="opcao-letra">D</span>Há mandato válido ou estrutura (trust, holding) que garante gestão continuada.</button>
+      </div>
+    </div>
+
+    <div class="pergunta-wrap">
+      <div class="pergunta-num">Pergunta 5 de 5</div>
+      <p class="pergunta-texto">Você tem testamento ou planejamento sucessório que contempla os ativos no exterior explicitamente?</p>
+      <div class="opcoes" id="b3q5">
+        <button class="opcao" onclick="escolher('b3q5',0,this)"><span class="opcao-letra">A</span>Não tenho testamento e nunca planejei a sucessão dos ativos no exterior.</button>
+        <button class="opcao" onclick="escolher('b3q5',1,this)"><span class="opcao-letra">B</span>Tenho testamento no Brasil, mas ele não menciona os ativos no exterior.</button>
+        <button class="opcao" onclick="escolher('b3q5',2,this)"><span class="opcao-letra">C</span>Tenho planejamento que menciona os ativos no exterior, mas de forma genérica.</button>
+        <button class="opcao" onclick="escolher('b3q5',3,this)"><span class="opcao-letra">D</span>Planejamento sucessório completo com instruções específicas para cada jurisdição.</button>
+      </div>
+    </div>
+
+    <div class="nav-bloco">
+      <button class="btn-anterior" onclick="voltar(3)">← Anterior</button>
+      <button class="btn-proximo" id="btn-b3" onclick="avancar(3)" disabled>Próxima dimensão →</button>
+    </div>
+  </div>
+
+  <!-- BLOCO 4 — DEPENDÊNCIA INSTITUCIONAL -->
+  <div class="bloco" id="b4">
+    <div class="bloco-eyebrow" style="color: var(--d4)">Dimensão 4 · Dependência Institucional</div>
+    <h2 class="bloco-titulo">Em quantos sistemas seu patrimônio está concentrado?</h2>
+    <p class="bloco-desc">Concentração institucional é o risco invisível mais negligenciado. Um banco, uma corretora, uma jurisdição — qualquer falha nesse único ponto torna o patrimônio inacessível, independentemente de quanto valha.</p>
+
+    <div class="pergunta-wrap">
+      <div class="pergunta-num">Pergunta 1 de 5</div>
+      <p class="pergunta-texto">Quantos bancos ou corretoras diferentes custodiam seus ativos financeiros no Brasil?</p>
+      <div class="opcoes" id="b4q1">
+        <button class="opcao" onclick="escolher('b4q1',0,this)"><span class="opcao-letra">A</span>Um — toda a carteira está em um único banco ou corretora.</button>
+        <button class="opcao" onclick="escolher('b4q1',1,this)"><span class="opcao-letra">B</span>Dois — alguma distribuição, mas ainda concentrado.</button>
+        <button class="opcao" onclick="escolher('b4q1',2,this)"><span class="opcao-letra">C</span>Três — distribuição razoável entre instituições.</button>
+        <button class="opcao" onclick="escolher('b4q1',3,this)"><span class="opcao-letra">D</span>Quatro ou mais com critério — distribuição deliberada por tipo de ativo e risco.</button>
+      </div>
+    </div>
+
+    <div class="pergunta-wrap">
+      <div class="pergunta-num">Pergunta 2 de 5</div>
+      <p class="pergunta-texto">Se seu banco principal ficasse indisponível por 30 dias, qual seria o impacto imediato na sua vida financeira?</p>
+      <div class="opcoes" id="b4q2">
+        <button class="opcao" onclick="escolher('b4q2',0,this)"><span class="opcao-letra">A</span>Paralisação total — tudo passa por esse banco.</button>
+        <button class="opcao" onclick="escolher('b4q2',1,this)"><span class="opcao-letra">B</span>Impacto grave — a maior parte das operações ficaria bloqueada.</button>
+        <button class="opcao" onclick="escolher('b4q2',2,this)"><span class="opcao-letra">C</span>Impacto moderado — teria fontes alternativas para o essencial.</button>
+        <button class="opcao" onclick="escolher('b4q2',3,this)"><span class="opcao-letra">D</span>Impacto mínimo — tenho distribuição que garante continuidade operacional.</button>
+      </div>
+    </div>
+
+    <div class="pergunta-wrap">
+      <div class="pergunta-num">Pergunta 3 de 5</div>
+      <p class="pergunta-texto">Seus ativos no exterior estão custodiados em quais tipos de instituição?</p>
+      <div class="opcoes" id="b4q3">
+        <button class="opcao" onclick="escolher('b4q3',0,this)"><span class="opcao-letra">A</span>Não tenho ativos no exterior.</button>
+        <button class="opcao" onclick="escolher('b4q3',1,this)"><span class="opcao-letra">B</span>Apenas em corretora brasileira com acesso a BDRs — custódia ainda no Brasil.</button>
+        <button class="opcao" onclick="escolher('b4q3',2,this)"><span class="opcao-letra">C</span>Em corretora internacional (Interactive Brokers, Schwab ou similar) — custódia real no exterior.</button>
+        <button class="opcao" onclick="escolher('b4q3',3,this)"><span class="opcao-letra">D</span>Em múltiplas corretoras e/ou bancos internacionais, em mais de uma jurisdição.</button>
+      </div>
+    </div>
+
+    <div class="pergunta-wrap">
+      <div class="pergunta-num">Pergunta 4 de 5</div>
+      <p class="pergunta-texto">Você sabe qual é a proteção do depositante nas instituições onde seus ativos estão custodiados no exterior (SIPC nos EUA, FSCS no Reino Unido etc.)?</p>
+      <div class="opcoes" id="b4q4">
+        <button class="opcao" onclick="escolher('b4q4',0,this)"><span class="opcao-letra">A</span>Não tenho ativos no exterior e não conheço essas proteções.</button>
+        <button class="opcao" onclick="escolher('b4q4',1,this)"><span class="opcao-letra">B</span>Tenho ativos no exterior, mas desconheço a proteção do depositante nessas instituições.</button>
+        <button class="opcao" onclick="escolher('b4q4',2,this)"><span class="opcao-letra">C</span>Conheço superficialmente, mas não considerei os limites no meu planejamento.</button>
+        <button class="opcao" onclick="escolher('b4q4',3,this)"><span class="opcao-letra">D</span>Conheço os limites e distribuo os ativos considerando a cobertura por instituição.</button>
+      </div>
+    </div>
+
+    <div class="pergunta-wrap">
+      <div class="pergunta-num">Pergunta 5 de 5</div>
+      <p class="pergunta-texto">Suas principais contas bancárias e de investimento têm dupla autenticação e acessos documentados acessíveis a uma pessoa de confiança?</p>
+      <div class="opcoes" id="b4q5">
+        <button class="opcao" onclick="escolher('b4q5',0,this)"><span class="opcao-letra">A</span>Não — acessos e senhas estão apenas comigo, sem documentação.</button>
+        <button class="opcao" onclick="escolher('b4q5',1,this)"><span class="opcao-letra">B</span>Parcialmente — algumas contas têm, outras não.</button>
+        <button class="opcao" onclick="escolher('b4q5',2,this)"><span class="opcao-letra">C</span>A maioria tem, e há uma pessoa de confiança que sabe onde encontrar os acessos.</button>
+        <button class="opcao" onclick="escolher('b4q5',3,this)"><span class="opcao-letra">D</span>Todas as contas têm dupla autenticação e há protocolo documentado de acesso em emergência.</button>
+      </div>
+    </div>
+
+    <div class="nav-bloco">
+      <button class="btn-anterior" onclick="voltar(4)">← Anterior</button>
+      <button class="btn-proximo" id="btn-b4" onclick="avancar(4)" disabled>Próxima dimensão →</button>
+    </div>
+  </div>
+
+  <!-- BLOCO 5 — DEPENDÊNCIA TRIBUTÁRIA -->
+  <div class="bloco" id="b5">
+    <div class="bloco-eyebrow" style="color: var(--d5)">Dimensão 5 · Dependência Tributária</div>
+    <h2 class="bloco-titulo">Seu patrimônio no exterior está em conformidade com o cenário fiscal atual?</h2>
+    <p class="bloco-desc">A Lei 14.754/2023 mudou as regras tributárias para offshores. O que era diferido passou a ser tributado anualmente. Quem não atualizou a estrutura pode estar pagando mais do que deveria — ou criando passivo fiscal sem perceber.</p>
+
+    <div class="pergunta-wrap">
+      <div class="pergunta-num">Pergunta 1 de 5</div>
+      <p class="pergunta-texto">Você conhece as mudanças trazidas pela Lei 14.754/2023 para a tributação de investimentos no exterior e offshores?</p>
+      <div class="opcoes" id="b5q1">
+        <button class="opcao" onclick="escolher('b5q1',0,this)"><span class="opcao-letra">A</span>Não conheço essa lei e não revisei minha estrutura por causa dela.</button>
+        <button class="opcao" onclick="escolher('b5q1',1,this)"><span class="opcao-letra">B</span>Ouvi falar, mas não entendo como me afeta especificamente.</button>
+        <button class="opcao" onclick="escolher('b5q1',2,this)"><span class="opcao-letra">C</span>Conheço e já revisei pontualmente, mas sem planejamento formal.</button>
+        <button class="opcao" onclick="escolher('b5q1',3,this)"><span class="opcao-letra">D</span>Conheço e minha estrutura já foi revisada e adequada às novas regras.</button>
+      </div>
+    </div>
+
+    <div class="pergunta-wrap">
+      <div class="pergunta-num">Pergunta 2 de 5</div>
+      <p class="pergunta-texto">Sua estrutura offshore — se existir — está enquadrada como "controlada" ou "coligada" para fins da Lei 14.754/2023? (A distinção define quando e como os lucros são tributados.)</p>
+      <div class="opcoes" id="b5q2">
+        <button class="opcao" onclick="escolher('b5q2',0,this)"><span class="opcao-letra">A</span>Não tenho estrutura offshore.</button>
+        <button class="opcao" onclick="escolher('b5q2',1,this)"><span class="opcao-letra">B</span>Tenho offshore, mas não sei qual é o enquadramento dela nessa lei.</button>
+        <button class="opcao" onclick="escolher('b5q2',2,this)"><span class="opcao-letra">C</span>Sei o enquadramento, mas ainda não adaptei o planejamento tributário.</button>
+        <button class="opcao" onclick="escolher('b5q2',3,this)"><span class="opcao-letra">D</span>Sei o enquadramento e o planejamento tributário já reflete as novas regras.</button>
+      </div>
+    </div>
+
+    <div class="pergunta-wrap">
+      <div class="pergunta-num">Pergunta 3 de 5</div>
+      <p class="pergunta-texto">Você usa previdência privada (PGBL ou VGBL) como instrumento de planejamento tributário e sucessório integrado ao seu patrimônio global?</p>
+      <div class="opcoes" id="b5q3">
+        <button class="opcao" onclick="escolher('b5q3',0,this)"><span class="opcao-letra">A</span>Não tenho previdência privada.</button>
+        <button class="opcao" onclick="escolher('b5q3',1,this)"><span class="opcao-letra">B</span>Tenho previdência, mas uso apenas como poupança — sem planejamento fiscal.</button>
+        <button class="opcao" onclick="escolher('b5q3',2,this)"><span class="opcao-letra">C</span>Uso com algum critério fiscal, mas não está integrada ao planejamento global.</button>
+        <button class="opcao" onclick="escolher('b5q3',3,this)"><span class="opcao-letra">D</span>Uso previdência como instrumento estratégico de planejamento fiscal e sucessório.</button>
+      </div>
+    </div>
+
+    <div class="pergunta-wrap">
+      <div class="pergunta-num">Pergunta 4 de 5</div>
+      <p class="pergunta-texto">A tributação dos seus investimentos no exterior — ganhos de capital, rendimentos, dividendos — é apurada e declarada corretamente no Brasil?</p>
+      <div class="opcoes" id="b5q4">
+        <button class="opcao" onclick="escolher('b5q4',0,this)"><span class="opcao-letra">A</span>Não tenho clareza sobre isso — nunca apurei ou declarei sistematicamente.</button>
+        <button class="opcao" onclick="escolher('b5q4',1,this)"><span class="opcao-letra">B</span>Declaro o patrimônio, mas a apuração de rendimentos é incompleta.</button>
+        <button class="opcao" onclick="escolher('b5q4',2,this)"><span class="opcao-letra">C</span>Declaro e apuro com auxílio de contador, mas sem planejamento fiscal ativo.</button>
+        <button class="opcao" onclick="escolher('b5q4',3,this)"><span class="opcao-letra">D</span>Há planejamento fiscal ativo com contador especializado em patrimônio internacional.</button>
+      </div>
+    </div>
+
+    <div class="pergunta-wrap">
+      <div class="pergunta-num">Pergunta 5 de 5</div>
+      <p class="pergunta-texto">Se o Brasil aumentasse significativamente a tributação sobre patrimônio e investimentos no exterior nos próximos 5 anos, sua estrutura seria resiliente a essa mudança?</p>
+      <div class="opcoes" id="b5q5">
+        <button class="opcao" onclick="escolher('b5q5',0,this)"><span class="opcao-letra">A</span>Não. Estou totalmente exposto a mudanças tributárias brasileiras.</button>
+        <button class="opcao" onclick="escolher('b5q5',1,this)"><span class="opcao-letra">B</span>Parcialmente — tenho alguma estrutura, mas sem planejamento de cenários adversos.</button>
+        <button class="opcao" onclick="escolher('b5q5',2,this)"><span class="opcao-letra">C</span>Razoavelmente — minha estrutura já considera cenários de aumento tributário.</button>
+        <button class="opcao" onclick="escolher('b5q5',3,this)"><span class="opcao-letra">D</span>Bem protegido — estrutura planejada para múltiplos cenários tributários, com flexibilidade.</button>
+      </div>
+    </div>
+
+    <div class="nav-bloco">
+      <button class="btn-anterior" onclick="voltar(5)">← Anterior</button>
+      <button class="btn-proximo" id="btn-b5" onclick="avancar(5)" disabled>Próxima dimensão →</button>
+    </div>
+  </div>
+
+  <!-- BLOCO 6 — DEPENDÊNCIA DE RENDA -->
+  <div class="bloco" id="b6">
+    <div class="bloco-eyebrow" style="color: var(--d6)">Dimensão 6 · Dependência de Renda</div>
+    <h2 class="bloco-titulo">De onde vem a capacidade de gerar o que você tem?</h2>
+    <p class="bloco-desc">Um patrimônio pode ser geograficamente diversificado e ainda assim estar inteiramente dependente de uma única fonte de renda — ativa, em reais, concentrada no Brasil. A diversificação do patrimônio acumulado não resolve a concentração da geração de riqueza.</p>
+
+    <div class="pergunta-wrap">
+      <div class="pergunta-num">Pergunta 1 de 5</div>
+      <p class="pergunta-texto">Qual percentual da sua renda total atual é renda ativa — dependente da sua capacidade de trabalho?</p>
+      <div class="opcoes" id="b6q1">
+        <button class="opcao" onclick="escolher('b6q1',0,this)"><span class="opcao-letra">A</span>Mais de 90% — quase tudo depende da minha presença e capacidade de trabalho.</button>
+        <button class="opcao" onclick="escolher('b6q1',1,this)"><span class="opcao-letra">B</span>Entre 70% e 90% — renda passiva existe, mas é secundária.</button>
+        <button class="opcao" onclick="escolher('b6q1',2,this)"><span class="opcao-letra">C</span>Entre 40% e 70% — equilíbrio crescente entre ativa e passiva.</button>
+        <button class="opcao" onclick="escolher('b6q1',3,this)"><span class="opcao-letra">D</span>Menos de 40% — renda passiva já cobre a maior parte das necessidades.</button>
+      </div>
+    </div>
+
+    <div class="pergunta-wrap">
+      <div class="pergunta-num">Pergunta 2 de 5</div>
+      <p class="pergunta-texto">Se você não pudesse trabalhar por 24 meses, o patrimônio atual seria suficiente para manter o padrão de vida da família sem liquidar ativos produtivos?</p>
+      <div class="opcoes" id="b6q2">
+        <button class="opcao" onclick="escolher('b6q2',0,this)"><span class="opcao-letra">A</span>Não — teríamos que liquidar ativos relevantes rapidamente.</button>
+        <button class="opcao" onclick="escolher('b6q2',1,this)"><span class="opcao-letra">B</span>Parcialmente — a renda passiva cobre apenas uma parte das despesas.</button>
+        <button class="opcao" onclick="escolher('b6q2',2,this)"><span class="opcao-letra">C</span>Sim, com ajustes — a renda passiva cobriria o essencial com alguma redução de padrão.</button>
+        <button class="opcao" onclick="escolher('b6q2',3,this)"><span class="opcao-letra">D</span>Sim, confortavelmente — a renda passiva é suficiente sem liquidar ativos.</button>
+      </div>
+    </div>
+
+    <div class="pergunta-wrap">
+      <div class="pergunta-num">Pergunta 3 de 5</div>
+      <p class="pergunta-texto">Sua renda passiva está concentrada em quais tipos de fonte?</p>
+      <div class="opcoes" id="b6q3">
+        <button class="opcao" onclick="escolher('b6q3',0,this)"><span class="opcao-letra">A</span>Não tenho renda passiva relevante.</button>
+        <button class="opcao" onclick="escolher('b6q3',1,this)"><span class="opcao-letra">B</span>Em uma única fonte — aluguéis, dividendos de empresa própria ou renda fixa.</button>
+        <button class="opcao" onclick="escolher('b6q3',2,this)"><span class="opcao-letra">C</span>Em duas ou três fontes diferentes, mas todas concentradas no Brasil.</button>
+        <button class="opcao" onclick="escolher('b6q3',3,this)"><span class="opcao-letra">D</span>Em múltiplas fontes descorrelacionadas, incluindo fontes em moeda estrangeira.</button>
+      </div>
+    </div>
+
+    <div class="pergunta-wrap">
+      <div class="pergunta-num">Pergunta 4 de 5</div>
+      <p class="pergunta-texto">Você tem um plano explícito para substituir progressivamente renda ativa por renda passiva nos próximos 10 anos?</p>
+      <div class="opcoes" id="b6q4">
+        <button class="opcao" onclick="escolher('b6q4',0,this)"><span class="opcao-letra">A</span>Não — nunca estruturei essa transição de forma explícita.</button>
+        <button class="opcao" onclick="escolher('b6q4',1,this)"><span class="opcao-letra">B</span>Tenho intenção, mas sem plano concreto com metas e prazo.</button>
+        <button class="opcao" onclick="escolher('b6q4',2,this)"><span class="opcao-letra">C</span>Tenho diretrizes gerais, mas o plano ainda não está formalizado.</button>
+        <button class="opcao" onclick="escolher('b6q4',3,this)"><span class="opcao-letra">D</span>Tenho plano formal com metas de renda passiva por ano, faixa etária e horizonte.</button>
+      </div>
+    </div>
+
+    <div class="pergunta-wrap">
+      <div class="pergunta-num">Pergunta 5 de 5</div>
+      <p class="pergunta-texto">Em uma crise que eliminasse 30% do valor dos seus ativos e interrompesse sua renda ativa simultaneamente, por quanto tempo seu patrimônio resistiria sem comprometer a estrutura de longo prazo?</p>
+      <div class="opcoes" id="b6q5">
+        <button class="opcao" onclick="escolher('b6q5',0,this)"><span class="opcoa-letra">A</span>Menos de 6 meses — a estrutura entraria em colapso rapidamente.</button>
+        <button class="opcao" onclick="escolher('b6q5',1,this)"><span class="opcao-letra">B</span>Entre 6 e 18 meses — sobreviveria com cortes severos.</button>
+        <button class="opcao" onclick="escolher('b6q5',2,this)"><span class="opcao-letra">C</span>Entre 18 meses e 3 anos — estrutura resistiria com adaptações.</button>
+        <button class="opcao" onclick="escolher('b6q5',3,this)"><span class="opcao-letra">D</span>Mais de 3 anos — a estrutura patrimonial é resiliente a crises combinadas.</button>
+      </div>
+    </div>
+
+    <div class="nav-bloco">
+      <button class="btn-anterior" onclick="voltar(6)">← Anterior</button>
+      <button class="btn-gerar" id="btn-b6" onclick="gerarDiagnostico()" disabled>Gerar meu diagnóstico →</button>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ RESULTADO ══════════ -->
+<section id="resultado">
+  <div class="res-header">
+    <div class="res-eyebrow">Diagnóstico VIDA · Proteção Patrimonial Global™</div>
+    <div class="res-nome-cliente" id="resNomeCliente">—</div>
+    <div class="res-subtitulo">Mapa de Vulnerabilidades Patrimoniais Globais™ · <span id="resData"></span></div>
+
+    <div class="res-perfil-badge" id="resPerfilBadge">—</div>
+    <p class="res-perfil-desc" id="resPerfilDesc">—</p>
+  </div>
+
+  <div class="res-score-wrap">
+
+    <!-- score geral -->
+    <div class="res-score-geral">
+      <div class="score-label">Índice VIDA de Proteção Global™ · IVPG™</div>
+      <div class="score-num" id="resScoreNum">—</div>
+      <div class="score-max">de 100 pontos</div>
+    </div>
+
+    <!-- dimensões -->
+    <div class="res-titulo-secao">Diagnóstico por dimensão</div>
+    <div class="dimensoes-grid" id="resDimensoes"></div>
+
+    <!-- vulnerabilidades -->
+    <div class="res-titulo-secao">Vulnerabilidades priorizadas</div>
+    <div class="vuln-lista" id="resVulnerabilidades"></div>
+
+    <!-- plano -->
+    <div class="res-titulo-secao">Plano de ação em três horizontes</div>
+    <div class="plano-grid" id="resPlano"></div>
+
+  </div>
+
+  <!-- CTA -->
+  <div class="res-cta">
+    <div class="cta-olho">Próximo passo</div>
+    <h2 class="cta-titulo" id="ctaTitulo">—</h2>
+    <p class="cta-corpo" id="ctaCorpo">—</p>
+    <a href="https://pay.hotmart.com/O106143183N" class="btn-cta" target="_blank" id="ctaBtn">Agendar sessão com Ivan Vianna →</a>
+    <p class="cta-nota">Ivan Vianna · CFP® · Análise aprofundada em sessão de 60 minutos</p>
+    <button class="btn-refazer" onclick="reiniciar()">Refazer o diagnóstico</button>
+  </div>
+
+  <div class="assinatura">
+    <div class="assinatura-nome">Ivan Vianna · CFP®</div>
+    <div class="assinatura-cargo">
+      Planejador financeiro · Arquiteto de patrimônio<br>
+      CNPJ 56.099.913/0001-61 · ivanviannafinancas.com.br
+    </div>
+  </div>
+</section>
+
+<script>
+// ═══════════════════════════════════════════════════════
+// DADOS
+// ═══════════════════════════════════════════════════════
+
+const DIMENSOES = [
+  { id:'d1', nome:'Dependência geográfica',     cor:'#2980b9', pergunta:'Qual percentual do patrimônio está fora do Brasil?' },
+  { id:'d2', nome:'Dependência cambial',        cor:'#8e44ad', pergunta:'Em qual moeda o patrimônio existe e pensa?' },
+  { id:'d3', nome:'Dependência jurídica e sucessória', cor:'#c0392b', pergunta:'Sua estrutura jurídica protege ou expõe?' },
+  { id:'d4', nome:'Dependência institucional',  cor:'#16a085', pergunta:'Em quantos sistemas o patrimônio está concentrado?' },
+  { id:'d5', nome:'Dependência tributária',     cor:'#d35400', pergunta:'A estrutura está adequada ao cenário fiscal atual?' },
+  { id:'d6', nome:'Dependência de renda',       cor:'#27ae60', pergunta:'De onde vem a capacidade de gerar riqueza?' },
+];
+
+const INTERPRETACOES = {
+  d1: {
+    alto:  'Mais de 85% do patrimônio está no Brasil. Qualquer crise sistêmica brasileira afeta o conjunto. A diversificação geográfica deve ser a primeira prioridade estrutural.',
+    medio: 'Exposição geográfica relevante ainda concentrada no Brasil. A diversificação iniciada precisa ser ampliada e formalizada.',
+    baixo: 'Diversificação geográfica estruturada. O foco deve ser a otimização da qualidade e da estrutura legal dos ativos no exterior.',
+  },
+  d2: {
+    alto:  'Mais de 80% do patrimônio está em real. Cada desvalorização cambial reduz diretamente o poder de compra e a capacidade de proteger riqueza.',
+    medio: 'Proteção cambial parcial. O nível de exposição ao real ainda é alto para um patrimônio que busca soberania.',
+    baixo: 'Boa diversificação cambial. O foco deve ser a qualidade dos ativos em moeda forte e a recorrência da renda em dólar ou euro.',
+  },
+  d3: {
+    alto:  'Estrutura jurídica ausente ou inadequada para os ativos no exterior. Estate tax, probate e ausência de mandato são riscos imediatos e concretos.',
+    medio: 'Estrutura parcialmente organizada. Há lacunas que, em um evento adverso, gerarão bloqueios, custos e processos evitáveis.',
+    baixo: 'Estrutura jurídica e sucessória adequada. Revisões periódicas são necessárias à medida que o patrimônio e a legislação evoluem.',
+  },
+  d4: {
+    alto:  'Concentração institucional crítica. Um único ponto de falha — banco, corretora ou jurisdição — pode paralisar todo o sistema patrimonial.',
+    medio: 'Distribuição institucional iniciada, mas com concentração relevante em uma ou duas instituições.',
+    baixo: 'Boa distribuição institucional. O foco deve ser a qualidade das instituições e a adequação da proteção do depositante.',
+  },
+  d5: {
+    alto:  'Exposição tributária relevante. A Lei 14.754/2023 mudou as regras — estruturas não revisadas podem gerar passivo fiscal não planejado.',
+    medio: 'Conformidade parcial. Há pontos que precisam ser revisados com contador especializado em patrimônio internacional.',
+    baixo: 'Planejamento tributário estruturado. Revisões anuais são necessárias dado o ambiente regulatório em evolução.',
+  },
+  d6: {
+    alto:  'Alta dependência de renda ativa. Se a capacidade de trabalho for interrompida, o patrimônio entra em pressão imediata.',
+    medio: 'Transição em andamento, mas ainda incompleta. A dependência de renda ativa ainda é o principal vulnerador do sistema.',
+    baixo: 'Boa base de renda passiva. O foco deve ser a descorrelação das fontes e a internacionalização da geração de riqueza.',
+  },
+};
+
+const PERFIS = [
+  { min:0,  max:30, nome:'Prisioneiro do Real',       cor:'#c0392b', bg:'rgba(192,57,43,0.15)', desc:'O patrimônio existe. Mas está inteiramente exposto a um único país, uma única moeda e um único sistema. Qualquer crise estrutural brasileira é uma crise patrimonial.' },
+  { min:31, max:55, nome:'Exposição Estruturada',      cor:'#d4820a', bg:'rgba(212,130,10,0.15)', desc:'Há movimentos na direção certa, mas com lacunas que criam vulnerabilidades invisíveis. O risco não está na intenção — está no que ainda não foi feito.' },
+  { min:56, max:75, nome:'Proteção Parcial',           cor:'#d7ae4d', bg:'rgba(215,174,77,0.15)', desc:'A estrutura existe, mas com pontos de fraqueza que podem ser determinantes em um cenário adverso. Está no momento certo de consolidar o que começou.' },
+  { min:76, max:100,nome:'Soberania Patrimonial',      cor:'#2E5C46', bg:'rgba(46,92,70,0.25)', desc:'Patrimônio estruturado, diversificado e com proteção real. O desafio agora é manter a qualidade e adaptar a arquitetura à medida que o cenário evolui.' },
+];
+
+// ═══════════════════════════════════════════════════════
+// ESTADO
+// ═══════════════════════════════════════════════════════
+
+let blocoAtual = 1;
+const totalBlocos = 6;
+const respostas = {}; // { 'b1q1': 0-3, ... }
+let dadosCliente = {};
+
+// ═══════════════════════════════════════════════════════
+// NAVEGAÇÃO
+// ═══════════════════════════════════════════════════════
+
+function iniciarDiagnostico() {
+  const nome = document.getElementById('inp-nome').value.trim();
+  const email = document.getElementById('inp-email').value.trim();
+  const patrimonio = document.getElementById('inp-patrimonio').value;
+
+  if (!nome) { document.getElementById('inp-nome').focus(); return; }
+  if (!email || !email.includes('@')) { document.getElementById('inp-email').focus(); return; }
+  if (!patrimonio) { document.getElementById('inp-patrimonio').focus(); return; }
+
+  dadosCliente = { nome, email, patrimonio };
+
+  document.getElementById('capa').style.display = 'none';
+  document.getElementById('quiz').style.display = 'block';
+  atualizarProgresso();
+  window.scrollTo(0,0);
+}
+
+function escolher(qId, pts, btn) {
+  const wrap = document.getElementById(qId);
+  wrap.querySelectorAll('.opcao').forEach(b => b.classList.remove('selecionada'));
+  btn.classList.add('selecionada');
+  respostas[qId] = pts;
+  verificarBloco(blocoAtual);
+}
+
+function verificarBloco(b) {
+  const perguntas = ['q1','q2','q3','q4','q5'].map(q => `b${b}${q}`);
+  const completo = perguntas.every(id => respostas[id] !== undefined);
+  const btnId = b === 6 ? 'btn-b6' : `btn-b${b}`;
+  document.getElementById(btnId).disabled = !completo;
+}
+
+function avancar(blocoSaindo) {
+  document.getElementById(`b${blocoSaindo}`).classList.remove('ativo');
+  blocoAtual = blocoSaindo + 1;
+  document.getElementById(`b${blocoAtual}`).classList.add('ativo');
+  atualizarProgresso();
+  window.scrollTo(0,0);
+}
+
+function voltar(blocoAtualParam) {
+  document.getElementById(`b${blocoAtualParam}`).classList.remove('ativo');
+  blocoAtual = blocoAtualParam - 1;
+  document.getElementById(`b${blocoAtual}`).classList.add('ativo');
+  atualizarProgresso();
+  window.scrollTo(0,0);
+}
+
+function atualizarProgresso() {
+  const pct = ((blocoAtual - 1) / totalBlocos) * 100;
+  document.getElementById('progressoBarra').style.width = pct + '%';
+  document.getElementById('textoEtapa').textContent = `Dimensão ${blocoAtual} de ${totalBlocos}`;
+}
+
+// ═══════════════════════════════════════════════════════
+// DIAGNÓSTICO
+// ═══════════════════════════════════════════════════════
+
+function calcularScore() {
+  const scores = [0,0,0,0,0,0];
+  for (let b = 1; b <= 6; b++) {
+    let soma = 0;
+    for (let q = 1; q <= 5; q++) {
+      const v = respostas[`b${b}q${q}`] || 0;
+      soma += v; // 0-3 por pergunta, máx 15
+    }
+    scores[b-1] = Math.round((soma / 15) * 100); // 0-100 por dimensão
+  }
+  return scores;
+}
+
+function nivelRisco(score) {
+  if (score >= 70) return 'baixo';
+  if (score >= 40) return 'medio';
+  return 'alto';
+}
+
+function labelRisco(nivel) {
+  return { alto: 'Risco alto', medio: 'Risco médio', baixo: 'Risco baixo' }[nivel];
+}
+
+function corBarra(nivel) {
+  return { alto: '#c0392b', medio: '#d4820a', baixo: '#2E5C46' }[nivel];
+}
+
+function gerarDiagnostico() {
+  const scores = calcularScore();
+  const scoreGeral = Math.round(scores.reduce((a,b) => a+b, 0) / 6);
+
+  // Perfil
+  const perfil = PERFIS.find(p => scoreGeral >= p.min && scoreGeral <= p.max) || PERFIS[0];
+
+  // UI — header
+  document.getElementById('resNomeCliente').textContent = dadosCliente.nome;
+  document.getElementById('resData').textContent = new Date().toLocaleDateString('pt-BR');
+  document.getElementById('resScoreNum').textContent = scoreGeral;
+  document.getElementById('resScoreNum').style.background = `linear-gradient(135deg, ${perfil.cor}, ${perfil.cor}cc)`;
+  document.getElementById('resScoreNum').style.webkitBackgroundClip = 'text';
+  document.getElementById('resScoreNum').style.webkitTextFillColor = 'transparent';
+
+  const badge = document.getElementById('resPerfilBadge');
+  badge.textContent = perfil.nome;
+  badge.style.background = perfil.bg;
+  badge.style.color = perfil.cor;
+  badge.style.border = `1px solid ${perfil.cor}55`;
+
+  document.getElementById('resPerfilDesc').textContent = perfil.desc;
+
+  // UI — dimensões
+  const dimEl = document.getElementById('resDimensoes');
+  dimEl.innerHTML = '';
+  DIMENSOES.forEach((d, i) => {
+    const s = scores[i];
+    const nivel = nivelRisco(s);
+    const interp = INTERPRETACOES[d.id][nivel];
+    dimEl.innerHTML += `
+      <div class="dim-card">
+        <div class="dim-header">
+          <div>
+            <div class="dim-nome">${i+1} · ${d.nome}</div>
+            <div class="dim-pergunta-base">${d.pergunta}</div>
+          </div>
+          <div class="dim-badge ${nivel}">${labelRisco(nivel)}</div>
+        </div>
+        <div class="dim-barra-wrap">
+          <div class="dim-barra-fill" style="width:${s}%; background:${corBarra(nivel)}"></div>
+        </div>
+        <div class="dim-interpretacao">${interp}</div>
+      </div>`;
+  });
+
+  // UI — vulnerabilidades (dimensões com risco alto ou médio, ordenadas por score asc)
+  const vuln = DIMENSOES.map((d,i) => ({...d, score: scores[i], nivel: nivelRisco(scores[i])}))
+    .filter(d => d.nivel === 'alto' || d.nivel === 'medio')
+    .sort((a,b) => a.score - b.score);
+
+  const vulnEl = document.getElementById('resVulnerabilidades');
+  vulnEl.innerHTML = '';
+  if (vuln.length === 0) {
+    vulnEl.innerHTML = '<p style="color:var(--cinza);font-size:14px;">Nenhuma vulnerabilidade crítica identificada. Foco em otimização e manutenção da estrutura.</p>';
+  } else {
+    vuln.forEach((d, i) => {
+      const cls = d.nivel === 'alto' ? '' : 'media';
+      vulnEl.innerHTML += `
+        <div class="vuln-item ${cls}">
+          <div class="vuln-num">${i+1}</div>
+          <div class="vuln-corpo">
+            <div class="vuln-titulo">${d.nome}</div>
+            <div class="vuln-desc">${INTERPRETACOES[d.id][d.nivel]}</div>
+          </div>
+        </div>`;
+    });
+  }
+
+  // UI — plano de ação
+  const plano = gerarPlano(scores, respostas);
+  const planoEl = document.getElementById('resPlano');
+  planoEl.innerHTML = `
+    <div class="plano-col">
+      <div class="plano-col-header imediato">Imediato · 0–30 dias</div>
+      <div class="plano-items">${plano.imediato.map(a => `<div class="plano-item">${a}</div>`).join('')}</div>
+    </div>
+    <div class="plano-col">
+      <div class="plano-col-header curto">Curto prazo · 90 dias</div>
+      <div class="plano-items">${plano.curto.map(a => `<div class="plano-item">${a}</div>`).join('')}</div>
+    </div>
+    <div class="plano-col">
+      <div class="plano-col-header estrut">Estrutural · 6–18 meses</div>
+      <div class="plano-items">${plano.estrutural.map(a => `<div class="plano-item">${a}</div>`).join('')}</div>
+    </div>`;
+
+  // UI — CTA
+  gerarCTA(scoreGeral, perfil);
+
+  // Mostrar resultado
+  document.getElementById('quiz').style.display = 'none';
+  document.getElementById('resultado').style.display = 'block';
+  window.scrollTo(0,0);
+
+  // Enviar para Sheets
+  enviarParaSheets(scoreGeral, scores, perfil.nome);
+}
+
+function gerarPlano(scores, r) {
+  const imediato = [];
+  const curto = [];
+  const estrutural = [];
+
+  // Dependência geográfica
+  if (scores[0] < 40) {
+    imediato.push('Abrir conta em corretora internacional regulamentada (Interactive Brokers, Schwab ou equivalente).');
+  } else if (scores[0] < 70) {
+    curto.push('Ampliar exposição geográfica: aumentar a parcela do patrimônio fora do Brasil para ao menos 20%.');
+  } else {
+    estrutural.push('Revisar distribuição jurisdicional dos ativos no exterior — qualidade e diversificação.');
+  }
+
+  // Dependência cambial
+  if (scores[1] < 40) {
+    imediato.push('Iniciar exposição cambial estruturada: ETFs globais, BDRs ou conta em corretora internacional.');
+  } else if (scores[1] < 70) {
+    curto.push('Aumentar parcela em moeda forte para ao menos 25% do patrimônio total.');
+  } else {
+    estrutural.push('Estruturar renda passiva recorrente em dólar ou euro para blindagem cambial de longo prazo.');
+  }
+
+  // Dependência jurídica
+  if (r['b3q1'] <= 1 || r['b3q2'] <= 1) {
+    imediato.push('Designar beneficiário (TOD) em corretoras americanas e verificar exposição ao estate tax imediatamente.');
+  }
+  if (r['b3q4'] === 0) {
+    imediato.push('Criar procuração ou mandato válido para gestão de ativos no exterior em caso de incapacidade.');
+  }
+  if (scores[2] < 60) {
+    curto.push('Consultar advogado especializado em direito patrimonial internacional para estruturar trust ou holding conforme o volume.');
+  }
+  if (r['b3q5'] <= 1) {
+    estrutural.push('Elaborar planejamento sucessório com testamento que contemple explicitamente os ativos em cada jurisdição.');
+  }
+
+  // Dependência institucional
+  if (scores[3] < 40) {
+    imediato.push('Distribuir os ativos entre ao menos três instituições diferentes — bancárias e de investimento.');
+  } else if (scores[3] < 70) {
+    curto.push('Documentar acessos e protocolos de acesso em emergência para todas as contas e instituições.');
+  }
+
+  // Dependência tributária
+  if (r['b5q1'] === 0 || r['b5q2'] === 1) {
+    imediato.push('Revisar obrigações fiscais decorrentes da Lei 14.754/2023 com contador especializado em patrimônio internacional.');
+  }
+  if (r['b5q4'] <= 1) {
+    curto.push('Regularizar a apuração e declaração de rendimentos de ativos no exterior — DCBE e ganhos de capital.');
+  }
+  if (scores[4] < 60) {
+    estrutural.push('Estruturar planejamento tributário internacional integrado: previdência, offshore e regime fiscal de cada jurisdição.');
+  }
+
+  // Dependência de renda
+  if (scores[5] < 40) {
+    curto.push('Mapear e expandir fontes de renda passiva: fundos de dividendos, REITs, imóveis geradores de renda.');
+  } else if (scores[5] < 70) {
+    estrutural.push('Criar plano formal de substituição progressiva de renda ativa por renda passiva com metas por horizonte.');
+  }
+  if (r['b6q3'] <= 1) {
+    estrutural.push('Diversificar as fontes de renda passiva — descorrelacionar entre si e incluir ao menos uma fonte em moeda estrangeira.');
+  }
+
+  // Garantir ao menos um item por coluna
+  if (imediato.length === 0) imediato.push('Documentar e inventariar todos os ativos — Brasil e exterior — com valor, localização e acesso.');
+  if (curto.length === 0) curto.push('Revisar a estrutura patrimonial com planejador especializado para identificar lacunas residuais.');
+  if (estrutural.length === 0) estrutural.push('Calibrar a arquitetura global à medida que o patrimônio cresce e o cenário regulatório evolui.');
+
+  return { imediato, curto, estrutural };
+}
+
+function gerarCTA(score, perfil) {
+  let titulo, corpo;
+
+  if (score < 31) {
+    titulo = 'Seu patrimônio está exposto. <strong>A sessão define por onde começar.</strong>';
+    corpo = 'O diagnóstico revelou vulnerabilidades que precisam de ação imediata. Na sessão, Ivan analisa seu caso específico e define a sequência correta de proteção.';
+  } else if (score < 56) {
+    titulo = 'Há estrutura. Mas há lacunas. <strong>A sessão fecha o que está aberto.</strong>';
+    corpo = 'Você já avançou. Mas as lacunas identificadas criam risco real em cenários adversos. A sessão traduz o mapa em ações concretas e priorizadas para o seu caso.';
+  } else if (score < 76) {
+    titulo = 'Estrutura sólida. <strong>A sessão garante que ela continue assim.</strong>';
+    corpo = 'O diagnóstico mostra um patrimônio bem encaminhado. A sessão aprofunda as dimensões de maior risco e define o que otimizar no próximo ciclo.';
+  } else {
+    titulo = 'Soberania patrimonial real. <strong>A sessão mantém o que você construiu.</strong>';
+    corpo = 'Seu patrimônio demonstra estrutura consistente. A sessão é o ponto de revisão estratégica para garantir que a arquitetura permaneça alinhada ao cenário atual.';
+  }
+
+  document.getElementById('ctaTitulo').innerHTML = titulo;
+  document.getElementById('ctaCorpo').textContent = corpo;
+}
+
+// ═══════════════════════════════════════════════════════
+// GOOGLE SHEETS
+// ═══════════════════════════════════════════════════════
+
+function enviarParaSheets(scoreGeral, scores, perfil) {
+  const payload = {
+    produto: 'Diagnóstico VIDA Proteção Patrimonial Global',
+    nome: dadosCliente.nome,
+    email: dadosCliente.email,
+    patrimonio: dadosCliente.patrimonio,
+    scoreGeral,
+    scoreGeografico: scores[0],
+    scoreCambial: scores[1],
+    scoreJuridico: scores[2],
+    scoreInstitucional: scores[3],
+    scoreTributario: scores[4],
+    scoreRenda: scores[5],
+    perfil,
+    data: new Date().toISOString(),
+    respostas: JSON.stringify(respostas),
+  };
+
+  fetch('https://script.google.com/macros/s/AKfycbzsVpO_OoWVjENJyDP2MCY-wGNqSnuz1oc6txaATRksQNRJCwrOaJaKlGzv2bQQI0I/exec', {
+    method: 'POST',
+    mode: 'no-cors',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(payload),
+  }).catch(() => {});
+}
+
+// ═══════════════════════════════════════════════════════
+// REINICIAR
+// ═══════════════════════════════════════════════════════
+
+function reiniciar() {
+  Object.keys(respostas).forEach(k => delete respostas[k]);
+  blocoAtual = 1;
+
+  document.querySelectorAll('.opcao').forEach(b => b.classList.remove('selecionada'));
+  document.querySelectorAll('.bloco').forEach(b => b.classList.remove('ativo'));
+  document.getElementById('b1').classList.add('ativo');
+  ['btn-b1','btn-b2','btn-b3','btn-b4','btn-b5','btn-b6'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.disabled = true;
+  });
+
+  document.getElementById('resultado').style.display = 'none';
+  document.getElementById('capa').style.display = 'flex';
+  atualizarProgresso();
+  window.scrollTo(0,0);
+}
+</script>
+</body>
+</html>
